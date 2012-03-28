@@ -1,0 +1,9 @@
+This is the first line
+The third line is blank
+
+This is fourth
+   Fifth line, spaces fore and aft
+sixth line; seventh is spaces and tabs
+            
+eighth line
+    ninth line and end of file w/o newline.
