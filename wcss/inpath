@@ -1,0 +1,23 @@
+#!/bin/sh
+# inpath - verifies that a specified program is valid as is,
+#   or that it can be found in the PATH directory list
+### Wicked Cool Shell Scripts; p11
+
+in_path()
+{
+    # Given a command and the PATH, try to find the command. Returns
+    # 0 if found and executable, 1 if not. Note this temporarily modifies
+    # the IFS (input field seperator) but restores is upon completion
+    
+    cmd=$1   path=$2   retval=1
+    oldIFS=$IFS   IFS=":"
+
+    for directory in $path
+    do
+        if [ -x $directory/$cmd ] ; then
+            retval=0      # if we're here, we found $cmd in $directory
+        fi
+    done
+    IFS=$oldIFS
+    return $retval
+}
